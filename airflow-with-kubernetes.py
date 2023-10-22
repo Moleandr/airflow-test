@@ -3,7 +3,7 @@ from datetime import datetime
 from airflow import DAG
 
 with DAG(
-    dag_id="airflow-with-kubernetes",
+    dag_id="airflow-with-kubernetes1",
     schedule=None,
     start_date=datetime.now(),
     catchup=False,
@@ -11,7 +11,7 @@ with DAG(
 ) as dag:
   airflow_with_kubernetes = KubernetesPodOperator(
     name="kubernetes_operator",
-    image="alekseyolg/airflow-with-kubernetes:v1.0",
+    image="moleandr/airflow-with-kubernetes:v2.0",
     cmds=["python"],
     arguments=["first-script.py"],
     task_id="run-pod-with-kubernetes",
